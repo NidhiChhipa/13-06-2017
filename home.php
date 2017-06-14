@@ -27,7 +27,7 @@ while($row=mysqli_fetch_assoc($result))
 { 
 ?>
 
-<a href="products.php?id=<?php echo $row['s_id']?>&category_id=<?php echo $row['category_id']?>"> &nbsp;&nbsp;&nbsp;<?php echo $row['s_name']?><br> 
+<a href="subcategory.php?s_id=<?php echo $row['s_id']?>&category_id=<?php echo $row['category_id']?>"> &nbsp;&nbsp;&nbsp;<?php echo $row['s_name']?><br> 
 
 <?php
 }
