@@ -11,6 +11,9 @@ $_SESSION['adminID']=$_POST['admin_name'];
 
 if(isset($_POST['submit']))
 {
+
+
+
   $sql="Select * from admin where admin_name='$username', admin_password='$password' and admin_type=$type" ;
       $query=mysqli_query($con,$sql);
      $row=mysqli_num_rows($query);
@@ -23,5 +26,5 @@ if(isset($_POST['submit']))
     {
       header('Location:admin.php');
     }
-  }  
+    
 ?>

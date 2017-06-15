@@ -18,8 +18,8 @@ $row=mysqli_num_rows($query);
 
 if($row<=0)                               
 {
- echo  $insert="INSERT into cart_id (c_email) values ('$c_email')";
-  echo $result1=mysqli_query($con,$insert);
+   $insert="INSERT into cart_id (c_email) values ('$c_email')";
+   $result1=mysqli_query($con,$insert);
   //$result_fetch=mysqli_fetch_assoc($result1);
  if($result1)
 {

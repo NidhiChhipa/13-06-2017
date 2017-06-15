@@ -19,6 +19,134 @@ $dob=$_POST['dob'];
 
 if(isset($_POST['submit']))
 {
+ $fnameErr=$lnameErr=$emailErr=$passErr=$phoneErr=$addErr=$stateErr=$cityErr=$zipErr=$countryErr=$dobErr=$fname=$lname=$email=$password=$phone=$add=$state=$city=$zipcode=$country=$dob="";
+
+if (empty($_POST['fname'])) {
+  $fnameErr="First name is required<br>";
+}
+else{ $fname=$_POST['fname'];
+if (!preg_match("/^[a-zA-Z ]*$/",$fname))
+{
+ $fnameErr = "Only letters and white space allowed <br>";
+}
+}
+
+if (empty($_POST['lname'])) {
+  $lnameErr="Last name is required<br>";
+}
+else{ $lname=$_POST['lname'];
+if (!preg_match("/^[a-zA-Z ]*$/",$lname))
+{
+ $lnameErr = "Only letters and white space allowed <br>";
+}
+}
+
+if (empty($_POST["c_email"]))
+{
+ $emailErr = "Email is required <br>";
+} 
+else
+{
+$email = $_POST["c_email"];
+if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+{
+ $emailErr = "Invalid email format <br>";
+ }
+ }
+
+if (empty($_POST["c_password"]))
+{
+ $passErr="Password is required <br>";  
+}
+else
+{
+  $password=$_POST['c_password'];
+if(preg_match("/^.*(?=.{8,})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$/", $_POST["pass"]) === 0)
+{  
+$passErr = "Password must be at least 8 characters and must contain at least one lower case letter, one upper case letter and one digit <br>";
+}
+
+}  
+
+if(empty($_POST['phone']))
+{
+ $phoneErr="Enter mobile number <br>";
+}
+else
+{ 
+$phone=$_POST['phone'];
+if(!preg_match("/^\d{10}$/",$phone))
+{
+$phoneErr="Invalid number <br>";
+}
+}
+
+if (empty($_POST['address']))
+{
+$addErr="Address is required <br>";
+}
+else
+{
+$add = $_POST["address"]; 
+}
+
+if (empty($_POST['state']))
+{
+$stateErr="state is required <br>";
+}
+else
+{
+$state = $_POST["state"]; 
+}
+
+if (empty($_POST['city']))
+{
+$cityErr="city is required <br>";
+}
+else
+{
+$city = $_POST["city"]; 
+}
+
+if (empty($_POST['zipcode']))
+{
+$zipErr="zipcode is required <br>";
+}
+else
+{
+$zipcode = $_POST["zipcode"]; 
+}
+
+if (empty($_POST['country']))
+{
+$countryErr="country is required <br>";
+}
+else
+{
+$country = $_POST["country"]; 
+}
+
+
+if (empty($_POST['dob']))
+{
+$dobErr="DOB is required <br>";
+}
+else 
+{
+$dob=$_POST['dob'];
+if (!preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$dob))
+{
+ $dobErr = "Invalid DOB <br>";
+}
+} 
+
+ }
+ 
+ if (!empty($fnameErr) || !empty($lnameErr) || !empty($emailErr) || !empty($passErr) || !empty($phoneErr) || !empty($addErr) || !empty($stateErr) || !empty($cityErr) || !empty($zipErr) || !empty($countryErr) || !empty($dobErr)) {
+  
+ }
+else
+{
   $sql="INSERT INTO customers (fname,lname,c_email,c_password,phone,address,state,city,zipcode,country,dob) 
 	VALUES ('$fname','$lname','$email','$password','$phone','$add','$state','$city','$zipcode','$country','$dob')"; 
     $query=mysqli_query($con,$sql);
@@ -28,13 +156,10 @@ if(isset($_POST['submit']))
     }
     else
     {
-    	header('Location:signup.php');
+    	//header('Location:signup.php');
     }
 }
-else
-   {
-	//echo "failed to insert";
-   }
+
 
 ?>
 <!DOCTYPE html>

@@ -9,6 +9,7 @@ else
 $login="1";
 }
 
+
 ?>
 <html>
 	<head>
@@ -25,11 +26,15 @@ $login="1";
 						<input type="text" name="search" id="search" placeholder="Search" size="75"/>
 				</td>
 				<td width="250" align="center">
-					<ul type="none" style="font-size:20px; color:white";>
+					<ul type="none" style="font-size:12px; color:white";>
 						<li>
 
 						<?php
-					
+						
+						echo "<li><a href='adminLogin.php' style='text-decoration:none; color:white';>Admin Login</a></li>";
+						echo "<li><a href='admin.php' style='text-decoration:none; color:white';>Admin Register</a></li>";
+
+
 						if($login=="1")
 						{								
 							echo "<li><a href='signin.php' style='text-decoration:none; color:white';>Login</a></li>";
@@ -48,7 +53,13 @@ $login="1";
 						?>
 						</li>
 						<li>&nbsp;</li>
-						<li><a style='text-decoration:none; color:white;' href="cart_view.php">View Cart</a></li>
+						<?php
+						$sql="select cart_id from cart_id where c_email='".$c_email."'";
+   						$query=mysqli_query($con,$sql);
+  						$row=mysqli_fetch_assoc($query);
+
+  						?>
+						<li><a style='text-decoration:none; color:white;' href="cart_view.php?cart_id=<?php echo $row['cart_id'];?>">View Cart</a></li>
 					</ul>
 				</td>
 			</tr>

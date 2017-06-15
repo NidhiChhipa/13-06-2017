@@ -35,10 +35,6 @@ $(document).ready(function()
 
     var quantity=$("#quantity").val();
     var p_id=<?php echo $p_id;?>;
-
-
-
-
     $.ajax({
         url:"cart.php",
         type:"POST",
@@ -56,11 +52,41 @@ $(document).ready(function()
     });
    }); 
 </script>
+
+<script>
+    $(document).ready(function()
+    {
+        $("#button1").click(function(){
+        
+        var quantity=$("#quantity").val();
+        var  p_prices=<?php echo $row['p_prices'];?>;
+        $.ajax({
+          url:"buy.php",
+          type:"POST",
+          data:{quantity:quantity,p_prices:p_prices},
+
+          success: function(result){
+                $("#div1").html(result);
+          }, 
+          error: function(){
+            alert("error");
+          }
+
+        });
+
+
+        });
+    
+    });
+
+</script>
+
+
 </head>
 
 <body>
 <h3 id="div" name="div"></h3>
-
+<h3 id="div1" name="div1"></h3>
 <table>
 <tr>
 <td> <img src="<?php echo $row['p_image']?>"> </td>
@@ -71,6 +97,13 @@ $(document).ready(function()
      Price:<?php echo $row['p_prices']?> </td>
 
 <td><br><a href="buy.php?p_id=<?php echo $p_id ?>"><input type="button" value="Buy"></a><br><input type="button" id="button"  value="Add to cart"></a></td>
+
+
+
+
+
+
+
 </tr>
 </table>
 </body>
