@@ -8,8 +8,7 @@ $s_id=$_GET['s_id'];
 $p_id=$_GET['p_id'];
 
 $c_email=$_SESSION['c_id'];
-
-
+$quantity=$_POST['quantity'];
 
 
 
@@ -53,7 +52,7 @@ $(document).ready(function()
    }); 
 </script>
 
-<script>
+<!--<script>
     $(document).ready(function()
     {
         $("#button1").click(function(){
@@ -80,7 +79,7 @@ $(document).ready(function()
     });
 
 </script>
-
+-->
 
 </head>
 
@@ -93,10 +92,10 @@ $(document).ready(function()
 <td> Product Name:<?php echo $row['p_name']?><br>
      Product Brand:<?php echo $row['p_brand']?><br>
      Description:<?php echo $row['p_description']?><br>
-     Quantity:<input type="text" name="quantity" id="quantity"><br>
+     Quantity:<input type="text" name="quantity" id="quantity" min="1" max="10"><br>
      Price:<?php echo $row['p_prices']?> </td>
 
-<td><br><a href="buy.php?p_id=<?php echo $p_id ?>"><input type="button" value="Buy"></a><br><input type="button" id="button"  value="Add to cart"></a></td>
+<td><br><input type="button" value="Buy"><br><input type="button" id="button"  value="Add to cart"></a></td>
 
 
 

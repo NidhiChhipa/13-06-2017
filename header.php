@@ -9,6 +9,7 @@ else
 $login="1";
 }
 
+$c_email=$_SESSION['c_id'];
 
 ?>
 <html>
@@ -30,10 +31,6 @@ $login="1";
 						<li>
 
 						<?php
-						
-						echo "<li><a href='adminLogin.php' style='text-decoration:none; color:white';>Admin Login</a></li>";
-						echo "<li><a href='admin.php' style='text-decoration:none; color:white';>Admin Register</a></li>";
-
 
 						if($login=="1")
 						{								

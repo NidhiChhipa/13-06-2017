@@ -183,17 +183,17 @@ $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
 <caption align="center"> <Span style="color:'DarkSlateGrey'"> SignUp </Span></caption>
 <form action="signup.php" method="post">
 
-First Name:<input type="text" name="fname"><br>
-Last Name:<input type="text" name="lname"><br>
-Email:<input type="text" name="c_email"><br>
-Password:<input type="password" name="c_password"><br>
-Mobile:<input type="text" name="phone">	<br>
-Address:<input type="textarea" name="address"><br>
-State:<input type="text" name="state"><br>
-City:<input type="text" name="city"><br>
-Zipcode:<input type="text" name="zipcode"><br>
-Country:<input type="text" name="country"><br>
-DOB:<input type="text" id="datepicker" name="dob"><br>
+First Name:<input type="text" name="fname"><span class="error"><?php echo $fnameErr;?> </span><br>
+Last Name:<input type="text" name="lname"><span class="error"><?php echo $lnameErr;?> </span><br>
+Email:<input type="text" name="c_email"><span class="error"><?php echo $c_email;?> </span><br>
+Password:<input type="password" name="c_password"><span class="error"><?php echo $c_password;?> </span><br>
+Mobile:<input type="text" name="phone"><span class="error"><?php echo $phoneErr;?> </span>	<br>
+Address:<input type="textarea" name="address"><span class="error"><?php echo $addErr;?> </span><br>
+State:<input type="text" name="state"><span class="error"><?php echo $stateErr;?> </span><br>
+City:<input type="text" name="city"><span class="error"><?php echo $cityErr;?> </span><br>
+Zipcode:<input type="text" name="zipcode"><span class="error"><?php echo $zipErr;?> </span><br>
+Country:<input type="text" name="country"><span class="error"><?php echo $countryErr;?> </span><br>
+DOB:<input type="text" id="datepicker" name="dob"><span class="error"><?php echo $dobErr;?> </span><br>
 Submit:<input type="submit" name="submit" value="submit">
 
 </form>

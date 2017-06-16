@@ -30,7 +30,6 @@ while ($row2=mysqli_fetch_assoc($query2))
 {
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,7 +76,8 @@ $(document).ready(function()
      Product Brand:<?php echo $row2['p_brand']; ?><br>
      Description:<?php echo $row2['p_description']; ?><br>
      Price:<?php echo $row2['p_prices']?> </td>
-     <td><br><a href="delete.php?p_id=<?php echo $row2['p_id'];?>">Delete</a></td>  
+     <td><a href="buy.php?p_id=<?php echo $row2['p_id'];?>&quantity=<?php echo $row2['quantity']?>"><input type="button" value="Buy">
+     <br><a href="remove.php?p_id=<?php echo $row2['p_id'];?>">Delete</a></td>  
 </tr>
 </table>
 </body>
